@@ -94,6 +94,16 @@ async function read(client: MongoClient) {
 
   console.log('Find one: {buda: "dharma"}');
   console.log(first);
+
+  console.log('Find all:');
+  console.log(
+    await client
+      .db('test-db')
+      .collection('test-faraday')
+      .find({})
+      .project({})
+      .toArray()
+  );
 }
 
 main().catch(console.error);
